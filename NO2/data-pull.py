@@ -24,5 +24,5 @@ coloradoData = requests.get(url = "https://aqs.epa.gov/data/api/dailyData/byStat
 coloradoData = coloradoData.json()
 
 df = pd.DataFrame(coloradoData['Data'])
-df.head()
-df.columns
+
+df.to_csv(r"C:\Users\willy\Downloads\Thesis\ozone\summer2021ozone.csv")
