@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import numpy as np
 
 # set variables
 email = 'wkeenan21@gmail.com'
@@ -51,3 +52,9 @@ for date in dateRange:
 
 for name in dateRange:
     days[name].to_csv(r"C:\Users\willy\Downloads\Thesis\ozone\ozone{}.csv".format(name))
+
+# define input data
+data = np.asarray([0, 0, 0, 1, 1, 0, 0, 0])
+data = data.reshape(1, 8, 1)
+
+data
