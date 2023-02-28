@@ -1,0 +1,1 @@
+20230216 844   0     0     0willy C:\Users\willy\Documents\GitHub\DU-Thesis\Ozone\trafficRasters\avgTp1.tif = IDW(traffic_merge2,  'Traffic1', #, 1.0, SAMPLE, 12,

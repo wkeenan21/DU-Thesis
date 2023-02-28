@@ -66,5 +66,4 @@ OzoneJulyAug = pd.concat(frames)
 # for name in dateRange:
 #     days[name].to_csv(r"C:\Users\willy\Downloads\Thesis\ozone\ozone{}.csv".format(name))
 
-OzoneDfJuly['LULC'] = np.zeros(len(OzoneDfJuly))
 
