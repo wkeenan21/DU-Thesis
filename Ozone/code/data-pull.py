@@ -1,8 +1,8 @@
 import requests
 import pandas as pd
 import numpy as np
-from PIL import Image
-from osgeo import gdal
+# from PIL import Image
+# from osgeo import gdal
 
 # set variables
 email = 'wkeenan21@gmail.com'
@@ -43,8 +43,6 @@ OzoneDfJuly.to_csv(r"C:\Users\willy\Documents\GitHub\DU-Thesis\Ozone\csvs\today\
 OzoneDfAug.to_csv(r"C:\Users\willy\Documents\GitHub\DU-Thesis\Ozone\csvs\today\AugOzone.csv")
 
 
-
-
 dateRange = OzoneDfJuly['date_local'].unique()
 times = OzoneDfJuly['time_local'].unique()
 sitesOzone = OzoneDfJuly['site_number'].unique()
@@ -53,6 +51,8 @@ sitesNO2 = NO2DfJuly['site_number'].unique()
 frames = [OzoneDfJuly, OzoneDfAug]
 OzoneJulyAug = pd.concat(frames)
 
+sitesNO2
+sitesOzone
 # days = {}
 # for name in dateRange:
 #     days[name] = pd.DataFrame(columns=OzoneDf.columns)

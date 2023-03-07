@@ -21,7 +21,7 @@ import pandas as pd
 ##todo: an example of LSTM model
 # model = Model()
 timesize = 6 ##e.g., past 6 hours
-input_var_cnt = 4 ##the number of variables used to perform prediction e.g., NO2, Ozone ... from the previous x tine steps
+input_var_cnt = 3 ##the number of variables used to perform prediction e.g., NO2, Ozone ... from the previous x tine steps
 input_lstm = Input(shape=(timesize, input_var_cnt)) ##what is the input for every sample, sample count is not included every sample should be a 2D matrix
 ##prepare a LSTM layer
 unit_lstm = 32 ##hidden dimensions transfer data, larger more complex model
@@ -34,15 +34,18 @@ model.compile(loss='mean_squared_error', optimizer='adam') ##how to measure the 
 
 ##todo: data preparation --replace with csv reading
 
-trainX = np.arange(100 * timesize * input_var_cnt).reshape(100, timesize, input_var_cnt ) ##input data for trainning, 100 is the sample cnt, should from the csv file
-trainY = np.arange(100) ##output data for trainning, 100 future ozone values correpsonding to the samples ...
+trainX = inputArray
+trainY = outputArray
+
+# trainX = np.arange(100 * timesize * input_var_cnt).reshape(100, timesize, input_var_cnt ) ##input data for trainning, 100 is the sample cnt, should from the csv file
+# trainY = np.arange(100) ##output data for trainning, 100 future ozone values correpsonding to the samples ...
 
 
 
 # train model
-model.fit(trainX, trainY, epochs=100, batch_size=1, verbose=2)
+model.fit(trainX, trainY, epochs=100, batch_size=32, verbose=2)
 ##make predictions or test model.
-testX = np.arange(100 * timesize * input_var_cnt).reshape(100, timesize, input_var_cnt )
+#testX = np.arange(100 * timesize * input_var_cnt).reshape(100, timesize, input_var_cnt )
 trainPredict = model.predict(trainX)
 
 
