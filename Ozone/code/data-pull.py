@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 # from PIL import Image
 # from osgeo import gdal
-
+import requests
 # set variables
 email = 'wkeenan21@gmail.com'
 key = 'carmelswift52'
@@ -13,6 +13,9 @@ bdateAug = '20210801'
 edateAug = '20210831'
 bbox = "39.259770,-105.632996,40.172953,-104.237732"
 bbox = bbox.split(',')
+ozoneCode= '44201'
+denverOzoneJuly = requests.get("https://aqs.epa.gov/data/api/sampleData/byBox?email={}&key={}&param={}&bdate={}&edate={}&minlat={}&maxlat={}&minlon={}&maxlon={}".format(email,key,ozoneCode,bdateJuly,edateJuly, bbox[0], bbox[2], bbox[1], bbox[3])).json()
+
 
 # find parameters
 params = requests.get(url = "https://aqs.epa.gov/data/api/list/parametersByClass?email={}&key={}&pc=CRITERIA".format(email,key))

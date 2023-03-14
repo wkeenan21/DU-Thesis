@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
+import datetime as dt
 #from PIL import Image
 #from osgeo import gdal
 from sklearn.linear_model import LinearRegression
@@ -20,7 +21,7 @@ from sklearn.linear_model import LinearRegression
 # sites = OzoneJuly['site_number'].unique()
 
 
-O3J = pd.read_csv(r"C:\Users\willy\Documents\GitHub\DU-Thesis\Ozone\csvs\today\JulyPlusWeather3.csv")
+O3J = pd.read_csv(r"C:\Users\willy\Documents\GitHub\DU-Thesis\Ozone\csvs\today\JulyPlus.csv")
 
 # make new column for integer time
 O3J['local_time_int'] = O3J['time_local']
@@ -66,6 +67,7 @@ O3J['wind_dir'] = np.zeros(len(O3J))
 for i in range(len(O3J['date_local'])):
     O3J['date_local'][i] = O3J['date_local'][i].replace('0:00:00', O3J['time_local'][i])
 O3J['date_local'] = pd.to_datetime(O3J['date_local'], format='%m/%d/%Y %H:%M')
+O3J['day_of_week'] = O3J['date_local'].dt.day_name()
 
 # site numbers are messed up sites 2 and 14 have multiple locations
 siteCoords = []
