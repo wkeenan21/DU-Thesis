@@ -117,7 +117,7 @@ phaseShift.reset_index(drop=True, inplace=True)
 phaseShift['shifted_tra'] = just2['averageTra'][0:-2]
 phaseShift = phaseShift[phaseShift['shifted_tra'].notna()]
 
-oneStation = newO3J[newO3J['site_will'] == 0]
+   
 
 X = just2[['HourlyWindSpeed', 'HourlyDryBulbTemperature', 'HourlyRelativeHumidity']]
 y = just2['sample_mea']
