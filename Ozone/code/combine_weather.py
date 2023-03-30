@@ -152,8 +152,8 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.layers import Input, LSTM,Dense
 
-from tf.keras import layers, optimizers, losses, metrics, Model
-from tf.keras import regularizers
+from tensorflow.keras import layers, optimizers, losses, metrics, Model
+from tensorflow.keras import regularizers
 import numpy.ma as ma
 import time
 from tensorflow.keras import activations

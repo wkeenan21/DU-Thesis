@@ -2,8 +2,6 @@ from PIL import Image
 import numpy as np
 import pandas as pd
 import math
-import netCDF4 as nc
-from osgeo import gdal
 
 """
 Making a crude model with 3 data sources: traffic, tropomi ozone, and EPA ozone
