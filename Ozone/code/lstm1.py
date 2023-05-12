@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
 # Import data
-O3J = pd.read_csv(r"D:\Will_Git\DU-Thesis\Ozone\csvs\today\ozoneJulyDenver.csv")
+O3J = pd.read_csv(r"C:\Users\willy\Documents\GitHub\DU-Thesis\Ozone\csvs\today\ozoneJulyDenver.csv")
 
 # drop columns, convert to datetime
 O3J['date_local'] = pd.to_datetime(O3J['date_local'])

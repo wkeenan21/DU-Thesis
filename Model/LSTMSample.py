@@ -24,6 +24,7 @@ timesize = 6 ##e.g., past 6 hours
 input_var_cnt = 3 ##the number of variables used to perform prediction e.g., NO2, Ozone ... from the previous x tine steps
 input_lstm = Input(shape=(timesize, input_var_cnt)) ##what is the input for every sample, sample count is not included every sample should be a 2D matrix
 ##prepare a LSTM layer
+Input(shape=)
 unit_lstm = 32 ##hidden dimensions transfer data, larger more complex model
 lstmlayer = LSTM(unit_lstm) (input_lstm) ##this outputs a matrix of 1*unit_lstm, the format is the layer (input), the output of the layer stores the time series info and the interaction of variables..
 denselayer = Dense(1)(lstmlayer) ## reduce the hidden dimension to 1 ==== output data ,1 value for 1 input sample --- predicted ozone

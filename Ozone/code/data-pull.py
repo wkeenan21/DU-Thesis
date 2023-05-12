@@ -31,19 +31,27 @@ for i in params['Data']:
         ozoneCode = (i['code'])
     elif 'Nitrogen' in i['value_represented']:
         NO2 = (i['code'])
+    elif 'PM2.5' in i['value_represented']:
+        PM25 = (i['code'])
 
 denverOzoneJuly = requests.get("https://aqs.epa.gov/data/api/sampleData/byBox?email={}&key={}&param={}&bdate={}&edate={}&minlat={}&maxlat={}&minlon={}&maxlon={}".format(email,key,ozoneCode,bdateJuly,edateJuly, bbox[0], bbox[2], bbox[1], bbox[3])).json()
 denverOzoneAugust = requests.get("https://aqs.epa.gov/data/api/sampleData/byBox?email={}&key={}&param={}&bdate={}&edate={}&minlat={}&maxlat={}&minlon={}&maxlon={}".format(email,key,ozoneCode,bdateAug,edateAug, bbox[0], bbox[2], bbox[1], bbox[3])).json()
 denverNO2July = requests.get("https://aqs.epa.gov/data/api/sampleData/byBox?email={}&key={}&param={}&bdate={}&edate={}&minlat={}&maxlat={}&minlon={}&maxlon={}".format(email,key,NO2,bdateJuly,edateJuly, bbox[0], bbox[2], bbox[1], bbox[3])).json()
 denverNO2August = requests.get("https://aqs.epa.gov/data/api/sampleData/byBox?email={}&key={}&param={}&bdate={}&edate={}&minlat={}&maxlat={}&minlon={}&maxlon={}".format(email,key,NO2,bdateAug,edateAug, bbox[0], bbox[2], bbox[1], bbox[3])).json()
+denverPM25July = requests.get("https://aqs.epa.gov/data/api/sampleData/byBox?email={}&key={}&param={}&bdate={}&edate={}&minlat={}&maxlat={}&minlon={}&maxlon={}".format(email,key,PM25,bdateJuly,edateJuly, bbox[0], bbox[2], bbox[1], bbox[3])).json()
+
 
 OzoneDfJuly = pd.DataFrame(denverOzoneJuly['Data'])
 OzoneDfAug = pd.DataFrame(denverOzoneAugust['Data'])
 NO2DfJuly = pd.DataFrame(denverNO2July['Data'])
 NO2DfAug = pd.DataFrame(denverNO2August['Data'])
+PM25DfJuly = pd.DataFrame(denverPM25July['Data'])
 
 OzoneDfJuly.to_csv(r"C:\Users\willy\Documents\GitHub\DU-Thesis\Ozone\csvs\today\JulyOzone.csv")
 OzoneDfAug.to_csv(r"C:\Users\willy\Documents\GitHub\DU-Thesis\Ozone\csvs\today\AugOzone.csv")
+
+NO2DfJuly.to_csv(r"C:\Users\willy\Documents\GitHub\DU-Thesis\Ozone\csvs\NO2\JulNO2.csv")
+PM25DfJuly.to_csv(r"C:\Users\willy\Documents\GitHub\DU-Thesis\Ozone\csvs\PM25\JulPM25.csv")
 
 
 dateRange = OzoneDfJuly['date_local'].unique()

@@ -5,8 +5,8 @@ import os
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
-#O3J = pd.read_csv(r"C:\Users\willy\Documents\GitHub\DU-Thesis\Ozone\csvs\today\ozoneJulyDenver.csv")
-O3J = pd.read_csv(r"D:\Will_Git\DU-Thesis\Ozone\csvs\today\ozoneJulyDenver.csv")
+O3J = pd.read_csv(r"C:\Users\willy\Documents\GitHub\DU-Thesis\Ozone\csvs\today\ozoneJulyDenver.csv")
+#O3J = pd.read_csv(r"D:\Will_Git\DU-Thesis\Ozone\csvs\today\ozoneJulyDenver.csv")
 
 O3J['date_local'] = pd.to_datetime(O3J['date_local'])
 O3J = O3J.drop(axis=1, labels=['Unnamed: 0.1', 'Unnamed: 0','uncertaint', 'qualifier', 'LULC','clipDEM1km','LATITUDE_1', 'LONGITUD_1', 'ELEVATION_x','NAME_x','ELEVATION_y', 'NAME_y','HourlyDewPointTemperature','HourlyPrecipitation',
